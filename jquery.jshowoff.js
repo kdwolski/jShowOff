@@ -159,8 +159,10 @@ speed :				time each slide is shown [integer, milliseconds, defaults to 3000]
 			// start slide rotation on specified interval
 			function play(src) {
 				if(!isBusy()){
-					counter++;
-					transitionTo(gallery,counter);
+					if(src!='hover') {
+						counter++;
+						transitionTo(gallery,counter);
+					}
 					if(src=='hover' || !isPlaying()) {
 						timer = setInterval(function(){ play(); },config.speed);
 					}
